@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/nuazsamy/public_html/
+    - export DEPLOYPATH=/home/nuazsamy/public_html/mysandbox
     - /bin/cp -R * $DEPLOYPATH
