@@ -40,7 +40,7 @@ function renderList() {
     <div class="relative max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <!-- Card -->
       <div class="relative">
-        <img class="rounded-t-lg h-32 w-full"
+        <img class="rounded-t-lg h-20 sm:h-32 w-full"
           src="${country.media.flag}"
           alt="${country.abbreviation}" />
         <div class="absolute inset-0 flex justify-end items-start">
