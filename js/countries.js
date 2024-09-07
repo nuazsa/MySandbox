@@ -68,7 +68,7 @@ function renderList() {
       <div class="bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-40"></div>
       
       <!-- Modal content -->
-      <div class="relative z-50 p-4 w-full max-w-2xl max-h-full">
+      <div class="relative z-50 p-4 w-full max-w-sm max-h-full">
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
           <!-- Modal header -->
           <div class="flex items-center justify-between p-4 border-b rounded-t dark:border-gray-600">
