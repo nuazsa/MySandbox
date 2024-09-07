@@ -23,7 +23,7 @@ const resultdecimal = document.getElementById('result-decimal');
 const resulthex = document.getElementById('result-hex');
 
 let currentConversion = 'decimal';
-let resultType = 'decimal';
+let resultType = 'binary';
 
 // Event listeners for conversion type selection
 binary.addEventListener('click', () => {
