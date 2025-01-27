@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Prediction</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@latest"></script>
+</head>
+<body>
+
+  <div id="camera-container">
+    <div id="header">Please capture your image for prediction</div>
+    <video id="video" autoplay muted></video>
+    <canvas id="canvas" width="640" height="480"></canvas>
+    <button onclick="capture()">Capture</button>
+    <button id="switch-camera" onclick="toggleCamera()">
+      <i class="fas fa-sync-alt"></i>
+    </button>
+    <div id="predict">Prediction results will appear here.</div>
+  </div>
+  
+  <div id="loading" class="loading-overlay">Loading...</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
