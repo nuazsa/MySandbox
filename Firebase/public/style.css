@@ -1,0 +1,107 @@
+/* Gaya untuk mengatur halaman */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Posisi horizontal */
+  align-items: center; /* Posisi vertikal */
+  min-height: 100vh; /* Tinggi penuh layar */
+  background-color: #f0f0f0; /* Warna latar belakang halaman */
+  font-family: Arial, sans-serif;
+}
+
+/* Kontainer utama form */
+.register-container {
+  max-width: 400px; /* Batas maksimal lebar kontainer */
+  width: 100%; /* Agar responsif */
+  padding: 20px;
+  background-color: #ffffff; /* Warna latar belakang form */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+  text-align: center; /* Pusatkan teks di dalam */
+}
+
+/* Form group untuk input */
+.form-group {
+  margin-bottom: 16px;
+  text-align: left; /* Label tetap rata kiri */
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Tombol utama (Register) */
+.register-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Tombol Login dengan Google */
+.google-login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px;
+  background-color: #ffffff;
+  color: #555555;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 16px;
+}
+
+.google-login-btn:hover {
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.google-login-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Tautan login */
+.login-link {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.login-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}

@@ -1,11 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Firebase</title>
+  <title>Register</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <h1>Hello Firebase</h1>
+  <div class="register-container">
+    <h2>Register</h2>
+    <form id="register-form" method="POST">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div class="form-group">
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" name="confirm_password" required>
+      </div>
+      <button type="submit" class="register-btn">Register</button>
+      <button type="button" class="google-login-btn">
+        <img src="https://logopng.com.br/logos/google-37.png" alt="Google Logo">
+        Login with Google
+      </button>
+    </form>
+    
+    <div class="login-link">
+      <p>Already have an account? <a href="/login">Login here</a></p>
+    </div>
+  </div>
+
+  <script type="module">
+    import { auth, createUserWithEmailAndPassword, provider, signInWithPopup } from './firebaseConfig.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const googleLoginBtn = document.querySelector('.google-login-btn');
+      googleLoginBtn.addEventListener('click', async () => {
+        try {
+          const result = await signInWithPopup(auth, provider);
+          const user = result.user;
+          alert(`Welcome, ${user.displayName}!`);
+          console.log('User info:', user);
+        } catch (error) {
+          alert(`Error: ${error.message}`);
+          console.error('Google login error:', error);
+        }
+      });
+
+      const form = document.getElementById('register-form');
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+
+        if (password !== confirmPassword) {
+          alert('Passwords do not match!');
+          return;
+        }
+
+        try {
+          const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+          alert('Registration successful!');
+          console.log('User created:', userCredential.user);
+        } catch (error) {
+          alert(`Error: ${error.message}`);
+          console.error('Registration error:', error);
+        }
+      });
+    });
+  </script>
 </body>
+
 </html>
