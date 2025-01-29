@@ -11,7 +11,8 @@ body {
 }
 
 /* Kontainer utama form */
-.register-container {
+.register-container,
+.login-container {
   max-width: 400px; /* Batas maksimal lebar kontainer */
   width: 100%; /* Agar responsif */
   padding: 20px;
@@ -44,7 +45,8 @@ body {
 }
 
 /* Tombol utama (Register) */
-.register-btn {
+.register-btn,
+.login-btn {
   width: 100%;
   padding: 12px;
   background-color: #007bff;
@@ -57,11 +59,13 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.register-btn:hover {
+.register-btn:hover, 
+.login-btn:hover {
   background-color: #0056b3;
 }
 
 /* Tombol Login dengan Google */
+.google-register-btn,
 .google-login-btn {
   display: flex;
   align-items: center;
@@ -81,6 +85,7 @@ body {
   margin-top: 16px;
 }
 
+.google-register-btn:hover,
 .google-login-btn:hover {
   background-color: #f8f9fa;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
@@ -92,16 +97,19 @@ body {
 }
 
 /* Tautan login */
+.register-link,
 .login-link {
   margin-top: 16px;
   text-align: center;
 }
 
+.login-link a,
 .login-link a {
   color: #007bff;
   text-decoration: none;
 }
 
+.login-link a:hover,
 .login-link a:hover {
   text-decoration: underline;
 }

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="register-container">
+    <h2>Register</h2>
+    <form id="register-form" method="POST">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div class="form-group">
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" name="confirm_password" required>
+      </div>
+      <button type="submit" class="register-btn">Register</button>
+      <button type="button" class="google-login-btn">
+        <img src="https://logopng.com.br/logos/google-37.png" alt="Google Logo">
+        Login with Google
+      </button>
+    </form>
+    
+    <div class="login-link">
+      <p>Already have an account? <a href="/login.html">Login here</a></p>
+    </div>
+  </div>
+
+  <script type="module">
+    import { 
+      auth, 
+      provider, 
+      createUserWithEmailAndPassword, 
+      signInWithPopup, 
+      onAuthStateChanged 
+    } from './firebaseConfig.js';
+
+    const googleLoginBtn = document.querySelector('.google-login-btn');
+    googleLoginBtn.addEventListener('click', async () => {
+      try {
+        await signInWithPopup(auth, provider);
+      } catch (error) {
+        alert(`Error: ${error.message}`);
+      }
+    });
+
+    const form = document.getElementById('register-form');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+
+      if (password !== confirmPassword) {
+        alert('Passwords do not match!');
+        return;
+      }
+
+      try {
+        await createUserWithEmailAndPassword(auth, email, password);
+      } catch (error) {
+        alert(`Error: ${error.message}`);
+      }
+    });
+    
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        window.location.href = '/index.html';
+      }
+    });
+  </script>
+</body>
+
+</html>
